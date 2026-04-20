@@ -1,4 +1,5 @@
 package com.pluralsight;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class FamousQuotes {
@@ -17,10 +18,27 @@ public class FamousQuotes {
         };
 
         Scanner scanner = new Scanner(System.in);
+        boolean seeSaying = true;
 
+        do {
         System.out.print("Enter a number between 1 and 10 to display a quote: ");
-        int userChoice = scanner.nextInt();
+        int userChoice;
 
-        System.out.println(quotes[userChoice]);
+        try {
+            userChoice = scanner.nextInt();
+            System.out.println(quotes[userChoice-1]);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("This number doesn't exist!");
+            continue;
+        }
+
+        System.out.println("Do you want to see another quote? (true/false)");
+        boolean userSaying = scanner.nextBoolean();
+
+        if (!userSaying){
+            seeSaying = false;
+        }
+
+    } while (seeSaying);
     }
 }
