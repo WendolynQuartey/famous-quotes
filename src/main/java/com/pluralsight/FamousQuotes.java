@@ -18,8 +18,9 @@ public class FamousQuotes {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter a number between 1 and 10 to display a quote: ");
+        System.out.print("Enter a number between 1 and 10 to display a quote: ");
         int userChoice = scanner.nextInt();
 
+        System.out.println(quotes[userChoice]);
     }
 }
